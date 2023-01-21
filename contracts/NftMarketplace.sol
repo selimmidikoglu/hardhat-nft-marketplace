@@ -31,7 +31,6 @@ contract NftMarketplace is ReentrancyGuard {
     event ItemListed(address indexed seller, address indexed nftAddress, uint256 indexed tokenId, uint256 price);
     event ItemBought(address indexed seller, address indexed nftAddress, uint256 indexed tokenId, uint256 price);
     event ItemCanceled(address indexed seller, address indexed nftAddress, uint256 indexed tokenId);
-    event ActionerIsOwner(address indexed nftAddress, uint256 indexed tokenId, address indexed spender);
     /** ---------- STATA VARIABLES ---------- */
 
     // NFT Contract address -> NFT TokenID -> Listing
@@ -57,7 +56,7 @@ contract NftMarketplace is ReentrancyGuard {
         // 2. Owners can still hold their NFT, and give the marketplace approval to sell the NFT for them.
         IERC721 nft = IERC721(nftAddress);
 
-        if (nft.getApproved(tokenId) != address(nft)) {
+        if (nft.getApproved(tokenId) != address(this)) {
             revert NftMarketplace__NotApprovedForMarketplace();
         }
 
