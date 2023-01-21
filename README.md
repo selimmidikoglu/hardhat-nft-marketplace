@@ -1,13 +1,6 @@
-# Sample Hardhat Project
-
-This project demonstrates a basic Hardhat use case. It comes with a sample contract, a test for that contract, and a script that deploys that contract.
-
-Try running some of the following tasks:
-
-```shell
-npx hardhat help
-npx hardhat test
-REPORT_GAS=true npx hardhat test
-npx hardhat node
-npx hardhat run scripts/deploy.js
-```
+1. Create a decentralized NFT Marketplace
+    1. `listItem`: List NFTs on the marketplace
+    2. `buyItem`: Buy NFTs
+    3. `cancelItem`: cancel a listing
+    4. `updateListing`: Update Price
+    5. `withdrawProceeds`: Withdraw payment for my bough NFTs
